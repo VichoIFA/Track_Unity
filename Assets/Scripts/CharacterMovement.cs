@@ -23,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        Application.targetFrameRate = 144;
     }
 
     private void FixedUpdate()
@@ -61,6 +63,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void CameraMovement()
     {
+        if (characterCamera == null) return;
+
         Vector2 cameraDir = Mouse.current.delta.value;
 
         if (Time.time < .1f) return;
