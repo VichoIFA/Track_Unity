@@ -24715,7 +24715,6 @@ MonoBehaviour:
   grabbable: {fileID: 222909966}
   leftController: {fileID: 632418419}
   rightController: {fileID: 632418418}
-  shootSoundSource: {fileID: 0}
 --- !u!82 &919132147919897237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24726,7 +24725,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2f51b8f8607df324daf77c3f70771d67, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.311
   m_Pitch: 1
