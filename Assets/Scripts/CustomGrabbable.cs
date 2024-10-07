@@ -11,7 +11,17 @@ public class GunControlGrabManager : MonoBehaviour
     [SerializeField] private Transform leftController;
     [SerializeField] private Transform rightController;
 
+    private AudioSource shootSoundSource;
+
+    private bool isLeftHand = false;
+
     private bool grabbedZapper = false;
+
+    private void Start()
+    {
+        shootSoundSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if(grabbable.State == InteractableState.Select && !grabbedZapper)
@@ -25,6 +35,8 @@ public class GunControlGrabManager : MonoBehaviour
                 this.transform.parent = leftController;
                 this.transform.rotation = leftController.rotation * Quaternion.Euler(25, 0, 0);
                 this.transform.localPosition = Vector3.zero + Vector3.down * 0.1f;
+
+                isLeftHand = true;
             }
 
             else
@@ -32,6 +44,8 @@ public class GunControlGrabManager : MonoBehaviour
                 this.transform.parent = rightController;
                 this.transform.rotation = rightController.rotation * Quaternion.Euler(25, 0, 0);
                 this.transform.localPosition = Vector3.zero + Vector3.down * 0.1f;
+
+                isLeftHand = false;
             }
         }
 
@@ -39,6 +53,12 @@ public class GunControlGrabManager : MonoBehaviour
         {
             this.transform.parent = null;
             grabbedZapper = false;
+        }
+
+        if(OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && isLeftHand || 
+          (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) && !isLeftHand))
+        {
+            shootSoundSource.Play();
         }
     }
 }
