@@ -55,8 +55,8 @@ public class GunControlGrabManager : MonoBehaviour
             grabbedZapper = false;
         }
 
-        if(OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && isLeftHand || 
-          (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) && !isLeftHand))
+        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && isLeftHand && grabbedZapper || 
+          (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && !isLeftHand && grabbedZapper  && !shootSoundSource.isPlaying))
         {
             shootSoundSource.Play();
         }
