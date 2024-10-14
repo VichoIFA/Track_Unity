@@ -11,6 +11,10 @@ public class GunControlGrabManager : MonoBehaviour
     [SerializeField] private Transform leftController;
     [SerializeField] private Transform rightController;
 
+    [SerializeField] private Transform cannonPoint;
+
+    [SerializeField] private GameObject bulletPrefab;
+
     private AudioSource shootSoundSource;
 
     private bool isLeftHand = false;
@@ -55,10 +59,16 @@ public class GunControlGrabManager : MonoBehaviour
             grabbedZapper = false;
         }
 
-        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && isLeftHand && grabbedZapper || 
+        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && isLeftHand && grabbedZapper && !shootSoundSource.isPlaying || 
           (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && !isLeftHand && grabbedZapper  && !shootSoundSource.isPlaying))
         {
             shootSoundSource.Play();
+
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, cannonPoint.position, Quaternion.identity);
+
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+            rb.AddForce(transform.forward * 115000f * Time.deltaTime);
         }
     }
 }
