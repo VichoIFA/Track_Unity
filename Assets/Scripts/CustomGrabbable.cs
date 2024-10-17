@@ -68,7 +68,7 @@ public class GunControlGrabManager : MonoBehaviour
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-            rb.AddForce(transform.forward * 115000f * Time.deltaTime);
+            rb.AddForce(transform.forward * 150000f * Time.deltaTime);
         }
     }
 }

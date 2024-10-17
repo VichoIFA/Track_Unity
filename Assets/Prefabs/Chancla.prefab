@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 7150294360908788871}
   - component: {fileID: 7013884422468750850}
   - component: {fileID: 3205915916695321806}
+  - component: {fileID: -73970119079339631}
   m_Layer: 0
   m_Name: Chancla
   m_TagString: Untagged
@@ -223,9 +224,21 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &-73970119079339631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492122646083275466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc56cc2ac8017094bb2395016c7eb391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3563862054371769562
 GameObject:
   m_ObjectHideFlags: 0

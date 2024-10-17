@@ -12,7 +12,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(LayerMask.NameToLayer("Shootable") == gameObject.layer)
-            Destroy(gameObject, .1f);
+        if (collision.transform.CompareTag("Shootable"))
+        {
+            Debug.Log("Found target");
+            Destroy(gameObject, .01f);
+        }
     }
 }
